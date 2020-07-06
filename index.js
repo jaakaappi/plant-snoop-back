@@ -43,8 +43,6 @@ app.post("/api/images", basicAuth({ users: { [user]: pwd } }), (req, res) => {
 
   sharp(req.body)
     .resize({ width: 720 })
-    .flop()
-    .flip()
     .toFile(`./public/images/previews/${sender} ${timestamp}.jpg`)
     .then((info) => {
       console.log(info);
